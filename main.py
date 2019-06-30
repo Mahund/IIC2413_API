@@ -25,10 +25,13 @@ MESSAGES_KEYS = ["message","lat","long","date"] # deleted sender and receptant
 # Nos aseguramos que cuando el programa termine, mongod no quede corriendo
 # atexit.register(mongod.kill)
 
+# Entrega 5
+uri = "mongodb://grupo26:grupo26@146.155.13.149/grupo26?authSource=admin"
+
 # El cliente se levanta en localhost:5432
-client = MongoClient('localhost')
+client = MongoClient(uri)
 # Utilizamos la base de datos 'entidades'
-db = client["entrega_4"]
+db = client.get_database()
 # Seleccionamos la colección de usuarios y mensajes
 users = db.users
 messages = db.messages
